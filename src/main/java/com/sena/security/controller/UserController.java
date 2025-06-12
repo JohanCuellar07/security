@@ -51,4 +51,9 @@ public class UserController {
         responseDTO respuesta = userService.deleteUser(id);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
+
+    @GetMapping("/profile")
+    public ResponseEntity<String> getProfile() {
+        return new ResponseEntity<>("end-point privado profile", HttpStatus.OK);
+    }
 }
