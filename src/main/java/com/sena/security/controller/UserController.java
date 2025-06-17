@@ -21,7 +21,7 @@ import com.sena.security.service.UserService;
 public class UserController {
     @Autowired
     private UserService userService;
-
+/* 
     @PostMapping("/")
     public ResponseEntity<Object> registerUser(@RequestBody UserDTO userDTO) {
         responseDTO respuesta = userService.save(userDTO);
@@ -33,7 +33,7 @@ public class UserController {
         responseDTO respuesta = userService.updateUser(id, userDTO);
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
-
+*/
     @GetMapping("/")
     public ResponseEntity<Object> getAllUsers() {
         var listUsers = userService.findAll();

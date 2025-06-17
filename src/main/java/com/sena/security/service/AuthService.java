@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.sena.security.model.AuthResponse;
+import com.sena.security.model.ERole;
 import com.sena.security.model.LoginRequest;
 import com.sena.security.model.RegisterRequest;
 import com.sena.security.model.User;
@@ -25,6 +26,7 @@ public class AuthService implements IUserService {
     public AuthResponse register(RegisterRequest request) {
         User userData = User.builder()
             .email(request.getEmail())
+            .role(ERole.User)
             .username(request.getUsername())
             .password(request.getPassword())
             .build();
