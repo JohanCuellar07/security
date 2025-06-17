@@ -14,7 +14,7 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JWTService {
 
-    private static final String secret_key = "osET5WE6kmOvCWy79hiiUAX0bUXfJKwubw3K+gRnusg=";
+    private static final String secret_key = "JAtAr69wLeKKWP+S2ZMjNe0kIa3Pw4qu90gcg3axIyI=";
 
     public String getToken(UserDetails userData) {
         return getToken(new HashMap<>(), userData);
@@ -24,6 +24,7 @@ public class JWTService {
         return Jwts
         .builder()
         .setClaims(extraClaims)
+        .setSubject(userData.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // 24 hours
         .signWith(getKey(),SignatureAlgorithm.HS256)
